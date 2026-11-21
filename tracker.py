@@ -7,7 +7,12 @@ import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-# ==================== CONFIGURATION ====================
+# ==================== QUICK SETTINGS ====================
+AVENGERS_DATE = "20261220"
+DUNE_DATE = "20261216"
+THEATRE_NAME = "PVR: Palazzo, The Nexus Vijaya Mall"
+# ========================================================
+
 # Pulled securely from GitHub Repository Secrets
 TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 DEFAULT_CHAT_ID = os.environ["CHAT_ID"]
@@ -15,20 +20,19 @@ DEFAULT_CHAT_ID = os.environ["CHAT_ID"]
 MOVIES = [
     {
         "name": "Avengers: Doomsday",
-        "date": "20261221",
-        "theatre": "PVR: Palazzo, The Nexus Vijaya Mall",
-        "url": "https://in.bookmyshow.com/movies/chennai/avengers-doomsday/buytickets/ET00526306/20261220?etCodes=ET00526306&language=english&refEventCode=ET00526306",
+        "date": AVENGERS_DATE,
+        "theatre": THEATRE_NAME,
+        "url": f"https://in.bookmyshow.com/movies/chennai/avengers-doomsday/buytickets/ET00526306/{AVENGERS_DATE}?etCodes=ET00526306&language=english&refEventCode=ET00526306",
         "chat_id": DEFAULT_CHAT_ID,
     },
     {
         "name": "Dune: Part Three",
-        "date": "20261220",
-        "theatre": "PVR: Palazzo, The Nexus Vijaya Mall",
-        "url": "https://in.bookmyshow.com/movies/chennai/dune-part-three/buytickets/ET00526290/20261216?etCodes=ET00526290&language=english&refEventCode=ET00526290",
+        "date": DUNE_DATE,
+        "theatre": THEATRE_NAME,
+        "url": f"https://in.bookmyshow.com/movies/chennai/dune-part-three/buytickets/ET00526290/{DUNE_DATE}?etCodes=ET00526290&language=english&refEventCode=ET00526290",
         "chat_id": DEFAULT_CHAT_ID,
     },
 ]
-# =======================================================
 
 def send_alert(message, chat_id=DEFAULT_CHAT_ID):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
@@ -160,6 +164,6 @@ if __name__ == "__main__":
     ist_minute = (utc_minute + 30) % 60
     if ist_minute < 5:
         tracked = "\n".join([f"• *{m['name']}* (`{m['date']}`)" for m in MOVIES])
-        send_alert(f"ℹ️ *Hourly Status:* Scanning every 5 mins for `PVR: Palazzo`:\n{tracked}")
+        send_alert(f"ℹ️ *Hourly Status:* Scanning every 5 mins for `{THEATRE_NAME}`:\n{tracked}")
 
     check_all_movies()
