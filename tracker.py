@@ -8,8 +8,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 # ==================== QUICK SETTINGS ====================
-AVENGERS_DATE = "20261220"
-DUNE_DATE = "20261216"
+AVENGERS_DATE = "20261224"
+DUNE_DATE = "20261220"
 THEATRE_NAME = "PVR: Palazzo, The Nexus Vijaya Mall"
 # ========================================================
 
