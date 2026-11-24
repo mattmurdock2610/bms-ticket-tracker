@@ -8,8 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 # ==================== QUICK SETTINGS ====================
-AVENGERS_DATE = "20261224"
-DUNE_DATE = "20261220"
+AVENGERS_DATE = "20261220"
 THEATRE_NAME = "PVR: Palazzo, The Nexus Vijaya Mall"
 # ========================================================
 
@@ -23,13 +22,6 @@ MOVIES = [
         "date": AVENGERS_DATE,
         "theatre": THEATRE_NAME,
         "url": f"https://in.bookmyshow.com/movies/chennai/avengers-doomsday/buytickets/ET00526306/{AVENGERS_DATE}?etCodes=ET00526306&language=english&refEventCode=ET00526306",
-        "chat_id": DEFAULT_CHAT_ID,
-    },
-    {
-        "name": "Dune: Part Three",
-        "date": DUNE_DATE,
-        "theatre": THEATRE_NAME,
-        "url": f"https://in.bookmyshow.com/movies/chennai/dune-part-three/buytickets/ET00526290/{DUNE_DATE}?etCodes=ET00526290&language=english&refEventCode=ET00526290",
         "chat_id": DEFAULT_CHAT_ID,
     },
 ]
